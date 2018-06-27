@@ -18,7 +18,7 @@ params={'bandwidth':np.logspace(-1,1)}#0.1 to 10
 grid=GridSearchCV(KernelDensity(),params,n_jobs=-1)
 grid.fit(data)
 
-estimator=grid.best_estimator_
+estimator=grid.best_estimator_ #chooses the estimator with the greatest score, maximises log probability on test split
 print(estimator.bandwidth)#3.56
 generated_digits=pca.inverse_transform(estimator.sample(30,random_state=7))
 
